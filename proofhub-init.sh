@@ -1,5 +1,8 @@
 #!/bin/bash
 
+chmod +x "$0"
+
+
 echo -e "\033[1m\033[0m"
 echo -e "$(tput bold)$(tput setaf 9) Welcome to Proofhub Project Intialization - By Austin Jacob"$(tput sgr0)
 read -p "Enter Proofhub Email: " proofhub_email

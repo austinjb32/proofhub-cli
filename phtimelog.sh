@@ -1,5 +1,17 @@
 #!/bin/bash
 
+proofhub_file="proofhub.json"
+
+# Check if proofhub.json exists
+if [ ! -f "$proofhub_file" ]; then
+ echo -e "$(tput bold)$(tput setaf 1)Error: $proofhub_file not found."$(tput sgr0)
+ echo -e "Exiting..."
+    exit 1
+fi
+
+trap "exit" INT TERM ERR
+trap "kill 0" EXIT
+
 api_endpoint=$(jq -r '.API_ENDPOINT' proofhub.json)
 user_agent=$(jq -r '.USER_AGENT' proofhub.json)
 api_key=$(jq -r '.API_KEY' proofhub.json)
@@ -246,3 +258,8 @@ else
 fi
 
 
+read -t 0.1 -n 1 key
+if [[ $key == $'\e' ]]; then
+    echo -e "\n$(tput bold)$(tput setaf 3)User pressed ESC. Exiting...$(tput sgr0)"
+    exit 0
+fi
