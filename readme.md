@@ -2,6 +2,8 @@
 
 # Proofhub Project Initialization Script
 
+## In Development 
+
 ## Overview
 
 This Bash script is designed to initialize a Proofhub project by creating a `proofhub.json` configuration file. It prompts the user to enter Proofhub login details (email and API key) and then allows the user to select a Proofhub project. The selected project's ID, along with the user's login details, is then stored in the `proofhub.json` file for future use.
